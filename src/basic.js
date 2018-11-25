@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React,{Component} from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
+
 
 // const fadeAnimation = {
 //     transitionName: "basic",
 //     transitionAppear: true,
 //     transitionAppearTimeout: 500,
 //     transitionEnter: true,
-//     transitionEnterTimeout: 500,
+//     transiti onEnterTimeout: 500,
 //     transitionLeave: true,
 //     transitionLeaveTimeout: 500
 // };
@@ -19,14 +20,6 @@ class Basic extends Component {
             items: [99, 25]
         }
     }
-
-    addElements() {
-        if (this.state.items)
-            return this.state.items.map(function (item, i) {
-                    return <div className="item" key={i}>{item}</div>
-                })
-    }
-
     generateNumber() {
         const number = Math.floor(Math.random() * 100);
         const newArray = this.state.items;
@@ -34,11 +27,9 @@ class Basic extends Component {
         this.setState({
             items: newArray
         });
-
         console.log(number);
     }
     deleteNumber = () => {
-
         const newArry = this.state.items;
         newArry.pop();
 
@@ -48,10 +39,23 @@ class Basic extends Component {
         console.log(this.state.items)
     }
 
+    addElements() {
+        if (this.state.items)
+            return this.state.items.map(function (item, i) {
+                return <div className="item" key={i}>{item}</div>
+            })
+    }
+
     render() {
         return (
             <div>
-                {this.addElements()}
+                <CSSTransitionGroup
+                    transitionName="basic"
+                    transitionEnter={true}
+                    transitionEnterTimeout={500}
+                >
+                    {this.addElements()}
+                </CSSTransitionGroup>
                 <div className="btns">
                     <div className="btn-add" onClick={() => this.generateNumber()}>Add Elements</div>
                     <div className="btn-remove" onClick={() => this.deleteNumber()}>Remove Elements</div>
@@ -60,6 +64,7 @@ class Basic extends Component {
         )
     }
 }
+
 
 
 export default Basic;

@@ -11,6 +11,7 @@
     background: #E91E63;
     display: inline-block;
     margin: 5px;
+    text-align: center;
     padding: 5px 10px;
     border-radius: 5px;
     color: white;
@@ -35,11 +36,24 @@
     background: #F44336;
 }
 .item {
-    background: rgb(12, 36, 56);
+    background: rgb(26, 94, 150);
     color: #fff;
     /* font-weight: bold; */
     text-align: center;
     margin-bottom: 1px;
     padding: 10px;
     font-size: 12px;
+}
+
+
+/* Transition CSS */
+/*=============================================
+          Basic Anomation CSS
+==============================================*/
+.basic-enter{
+    background: black;
+}
+.basic-enter.basic-enter-active{
+    background: rgb(26, 94, 150);
+    transition: all 500ms ease-in;    
 }

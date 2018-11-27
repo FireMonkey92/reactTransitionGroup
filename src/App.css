@@ -1,5 +1,11 @@
+#root{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-weight: 400;
+    font-size: 15px;
+}
 .App{
     text-align: center;
+   
 }
 .navBar{
     border-bottom: 5px #d4d4d4;
@@ -11,7 +17,8 @@
     background: #E91E63;
     display: inline-block;
     margin: 5px;
-    text-align: center;
+    box-sizing: border-box;
+    border: 2px black solid;
     padding: 5px 10px;
     border-radius: 5px;
     color: white;
@@ -22,6 +29,8 @@
 .btns {
     margin-top: 20px;
     font-size: 12px;
+    cursor: pointer;
+    
     
 }
 .btn-add, 
@@ -30,13 +39,14 @@
   color: #FFf;
   text-align: center;
   padding: 10px;
+  border: 2px black solid;
   margin: 5px;
 }
 .btn-remove {
     background: #F44336;
 }
 .item {
-    background: rgb(26, 94, 150);
+    background: rgb(25, 65, 97);
     color: #fff;
     /* font-weight: bold; */
     text-align: center;
@@ -57,3 +67,91 @@
     background: rgb(26, 94, 150);
     transition: all 500ms ease-in;    
 }
+.basic-appear{
+    opacity: 0.1;
+}
+.basic-appear.basic-appear-active{
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}
+.basic-enter{
+    background: black;
+}
+.basic-enter.basic-enter-active{
+    background: rgb(25, 65, 97);
+    transition: all 500ms ease-in;
+}
+
+.basic-leave{
+    background: rgb(25, 65, 97);
+}
+
+.basic-leave.basic-leave-active{
+    transform: translateX(-100%);
+    background: black;
+    transition: all 500ms ease-in;
+}
+
+/*======================================= 
+            Fade Animation CSs
+=======================================*/
+
+.fade-appear{
+    opacity: 0.1;
+}
+.fade-appear.fade-appear-active{
+    opacity: 1;
+    transition: opacity .5s ease-in;
+} 
+.fade-enter{
+    opacity: 0.1;
+}
+.fade-enter.fade-enter-active{
+    opacity: 1;
+    transition:  opacity .5s ease-in;
+}
+
+.fade-leave{
+    opacity: 1;;
+}
+.fade-leave.fade-leave-active{
+    opacity: 0.1;
+    transition:  opacity .5s ease-in;
+}
+
+/*======================================= 
+            Slide Animation CSs
+=======================================*/
+.slide-appear{
+    opacity: 0.1;
+    transform: translateX(-100%);
+}
+.slide-appear.slide-appear-active{
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all .5s ease-in;
+}
+
+.slide-enter{
+    opacity: 0.1;
+    transform:  translateX(-100%);
+}
+.slide-enter.slide-enter-active{
+    opacity:  1;
+    transition: all .5s  ease-in;
+    transform:  translateX(0%);
+}
+
+.slide-leave{
+    opacity: 1;
+    transform: translateX(0%)
+}
+
+.slide-leave.slide-leave-active{
+    opacity: .1;
+    transform: translateX(-100%);
+    transition: all .5s ease-in;
+}
+
+
+

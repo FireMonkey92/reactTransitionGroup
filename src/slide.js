@@ -1,15 +1,24 @@
-import React,{Component} from 'react';
-import {CSSTransitionGroup} from 'react-transition-group'
- 
+import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
+
+import  {SlideAnimation} from './Animations'; 
 
 class Slide extends Component {
-
+    
     constructor(props) {
         super(props);
         this.state = {
             items: [99, 25]
         }
     }
+    
+    addElements() {
+        if (this.state.items)
+            return this.state.items.map(function (item, i) {
+                return <div className="item" key={i}>{item}</div>
+            })
+    }
+
     generateNumber() {
         const number = Math.floor(Math.random() * 100);
         const newArray = this.state.items;
@@ -22,29 +31,17 @@ class Slide extends Component {
     deleteNumber = () => {
         const newArry = this.state.items;
         newArry.pop();
-
+        console.log(newArry);
         this.setState({
             items: newArry
-        })
-        console.log(this.state.items)
-    }
-
-    addElements() {
-        if (this.state.items)
-            return this.state.items.map(function (item, i) {
-                return <div className="item" key={i}>{item}</div>
-            })
+        });
     }
 
     render() {
         return (
             <div>
-                <CSSTransitionGroup
-                    transitionName="slide"
-                    transitionEnter={true}
-                    transitionEnterTimeout={500}
-                >
-                    {this.addElements()}
+                <CSSTransitionGroup {...SlideAnimation}>
+                {this.addElements()}
                 </CSSTransitionGroup>
                 <div className="btns">
                     <div className="btn-add" onClick={() => this.generateNumber()}>Add Elements</div>
@@ -54,6 +51,5 @@ class Slide extends Component {
         )
     }
 }
-
 
 export default Slide;
